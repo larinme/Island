@@ -7,6 +7,11 @@ public class Island {
         n = row;
         m = column;
         map = new Object[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                map[i][j] = new Node(i,j);
+            }
+        }
     }
     public void time(){
         for(int i =0; i<n;i++){
