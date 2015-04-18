@@ -12,7 +12,7 @@ public class Node {
         this.y = y;
     }
     public void delete(){
-        rabbitArrayList.set(rabbitArrayList.size()-1,null);
+        rabbitArrayList.remove(rabbitArrayList.size()-1);
         rabbitArrayList.trimToSize();
         sum--;
     }
