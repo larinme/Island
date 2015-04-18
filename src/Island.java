@@ -20,7 +20,7 @@ public class Island {
                     for (int k = map[i][j].rabbitArrayList.size() - 1; k >= 0; k--) {
                         {
                             Rabbit temp = map[i][j].rabbitArrayList.get(k);
-                            map[i][j].delete();
+                            if (!map[i][j].delete()) break;
                             System.out.println(temp.x + " " + temp.y);
                             temp.jump();
                             System.out.println(temp.x + " " + temp.y);
@@ -59,9 +59,9 @@ public class Island {
         Island a = new Island(n, m);
         Scanner in = new Scanner(System.in);
         int[][] island = new int[][]{
-                {1,0,1},
-                {0,1,0},
                 {1,0,0},
+                {0,1,0},
+                {0,0,1},
         };
         for(int i = 0; i < n; i++){
             for(int j = 0; j< m;j++){
@@ -77,7 +77,10 @@ public class Island {
         }
 
         System.out.println(a.toString());
-        for(int i =0; i < 3; i++){
+        for(int i =0; i < 200; i++){
+            if (i == 15){
+                short ss = 0;
+            }
             a.time();
             System.out.println(a.toString());
         }

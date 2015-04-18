@@ -11,10 +11,22 @@ public class Node {
         this.x = x;
         this.y = y;
     }
-    public void delete(){
-        rabbitArrayList.remove(rabbitArrayList.size()-1);
-        rabbitArrayList.trimToSize();
-        sum--;
+    public boolean delete(){
+        //rabbitArrayList.remove(rabbitArrayList.size()-1);
+
+            int i = rabbitArrayList.size() - 1;
+        if (i == -1) {
+            short aa;
+        }
+            if (i < 0) return false;
+        while (!rabbitArrayList.get(i).is_ready_to_jump) {
+            i--;
+            if (i < 0) return false;
+        }
+            rabbitArrayList.remove(i);
+            rabbitArrayList.trimToSize();
+            sum--;
+        return true;
     }
     public void add(Rabbit temp){
         rabbitArrayList.add(temp);
