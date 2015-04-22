@@ -1,6 +1,6 @@
 public class Rabbit {
     int x,y,m,n;
-    boolean is_ready_to_jump = true;
+    boolean is_ready_to_jump = true; // переменная, которая говорит, может ли этот кролик прыгать или нет
     public Rabbit(int x, int y, int n, int m){
         this.x=x;
         this.y=y;
@@ -8,8 +8,8 @@ public class Rabbit {
         this.n = n;
     }
     public void jump() {
-        if (is_ready_to_jump) {
-            int k = (int) (Math.random() * 9 - 1);
+        if (is_ready_to_jump) { // если он прыжок ЕЩЕ не совершил
+            int k = (int) (Math.random() * 9 - 1); //
             int dx = 0;
             int dy = 0;
             switch (k) {
@@ -58,6 +58,6 @@ public class Rabbit {
             x += dx;
             y += dy;
         }
-        is_ready_to_jump = false;
+        is_ready_to_jump = false; // прыжок сделан, за этот шаг больше прыгать нельзя!
     }
 }

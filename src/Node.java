@@ -11,26 +11,21 @@ public class Node {
         this.x = x;
         this.y = y;
     }
-    public boolean delete(){
-        //rabbitArrayList.remove(rabbitArrayList.size()-1);
-
-            int i = rabbitArrayList.size() - 1;
-        if (i == -1) {
-            short aa;
-        }
-            if (i < 0) return false;
-        while (!rabbitArrayList.get(i).is_ready_to_jump) {
+    public boolean delete(){ // метод возвращает true, если удалить удалось
+            int i = rabbitArrayList.size() - 1; // номер последнего кролика
+            if (i < 0) return false; // если кроликов нет, выйти
+        while (!rabbitArrayList.get(i).is_ready_to_jump) { // если последний кролик прыгал, то выбираем на 1 позицию меньше
             i--;
-            if (i < 0) return false;
+            if (i < 0) return false; // если дошли до конца, а все кролики прыгнули уже, выйти из метода
         }
-            rabbitArrayList.remove(i);
-            rabbitArrayList.trimToSize();
-            sum--;
-        return true;
+            rabbitArrayList.remove(i); // если нашли кролика, готового прыгнуть, то удалить его
+            rabbitArrayList.trimToSize(); // подогнать по размеру
+            sum--; // количество кроликов уменьшить на 1
+        return true; // найти кролика, готового прыгнуть, удалось
     }
     public void add(Rabbit temp){
-        rabbitArrayList.add(temp);
-        rabbitArrayList.trimToSize();
-        sum++;
+        rabbitArrayList.add(temp); // добавить кролика
+        rabbitArrayList.trimToSize(); // подогнать по размеру
+        sum++; // счетчик кроликов + 1
     }
 }
